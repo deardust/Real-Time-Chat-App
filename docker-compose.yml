@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  app:
+    image: golang
+    working_dir:
+      "/app"
+    volumes:
+      - ./:/app 
+    ports:
+      - "12345:12345"
+    command: go run main.go
+  
+  web:
+    image: nginx
+    volumes:
+      - ./SocketExample/dist/socket-example:/usr/share/nginx/html
+    ports:
+      - "8080:80"
