@@ -11,9 +11,16 @@ services:
       - "12345:12345"
     command: go run main.go
   
-  web:
+  web-angular:
     image: nginx
     volumes:
       - ./SocketExample/dist/socket-example:/usr/share/nginx/html
     ports:
       - "8080:80"
+
+  web-vue:
+    image: nginx
+    volumes:
+      - ./vue-project/dist:/usr/share/nginx/html
+    ports:
+      - "3000:80"
